@@ -13,8 +13,13 @@ cleanup:
     helm.sh/hook: pre-delete
     helm.sh/hook-delete-policy: hook-succeeded
 expose:
+  Args:
+    - --exposer
+    - NodePort
+    - --http
+    - "true"
   config:
-    exposer: Ingress
+    exposer: NodePort
     http: "true"
     tlsacme: "false"
   Annotations:
